@@ -1,0 +1,16 @@
+# --- Real policy exports: only *.example.json templates are committed.
+# Exported policy JSONs may contain tenant-specific IDs — keep them local.
+policies/*.json
+!policies/*.example.json
+
+# --- Hardware hash exports contain device serial numbers ---
+*.csv
+autopilot/
+hardware-hashes/
+
+# --- Logs and local working files ---
+*.log
+*.tmp
+notes/
+.DS_Store
+Thumbs.db
