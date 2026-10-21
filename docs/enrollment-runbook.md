@@ -8,7 +8,7 @@ throughout (`<serial>`, `<user>`); group names follow `docs/architecture.md`.
 - [ ] Intune license assigned to the user (or device license in place)
 - [ ] Asset record created in Snipe-IT — asset tag and serial recorded
       **there**, never in this repo
-- [ ] Autopilot enrollment profile `LAB-Autopilot-Corporate` exists and is
+- [ ] Autopilot enrollment profile `Autopilot-Corporate` exists and is
       assigned to the Autopilot device group
 - [ ] Compliance and configuration policies assigned to the pilot / corporate
       groups
@@ -24,7 +24,7 @@ throughout (`<serial>`, `<user>`); group names follow `docs/architecture.md`.
    CSV.
 2. **Import.** Intune admin center → Devices → Windows → Windows enrollment →
    Devices → Import. Upload the CSV (device serial, Windows product ID,
-   hardware hash, optional group tag e.g. `LAB-CORP`).
+   hardware hash, optional group tag e.g. `CORP`).
 3. **Wait for sync**, then confirm the device appears with profile status
    **Assigned**. Until a profile is assigned, the device will not recognize
    your tenant at OOBE.

@@ -1,9 +1,9 @@
-# Intune Endpoint Lab — Full Device Lifecycle with Microsoft Intune
+# Intune Endpoint Implementation — Full Device Lifecycle with Microsoft Intune
 
 
-> **Note on sources:** This lab recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
+> **Note on sources:** This implementation recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
 
-A production-style endpoint-lifecycle lab built around Intune templates and
+A production-style endpoint-lifecycle implementation built around Intune templates and
 SOPs: Autopilot enrollment, dynamic group targeting, compliance-gated access,
 Win32 app deployment, and GDPR-aware decommissioning — the full path from a
 sealed box to a certificate of destruction.
@@ -63,7 +63,7 @@ rings, and retire/wipe decommissioning with an asset trail in Snipe-IT.
 ## Quick start
 
 1. Sign in to the Microsoft Intune admin center (`intune.microsoft.com`) with
-   an Intune Administrator account in a lab tenant with Intune licenses.
+   an Intune Administrator account in a test tenant with Intune licenses.
 2. Create the Entra ID dynamic groups from `docs/architecture.md` (corporate,
    BYOD, pilot).
 3. Recreate the policies from the JSON templates: Devices → Windows →
@@ -71,7 +71,7 @@ rings, and retire/wipe decommissioning with an asset trail in Snipe-IT.
    `policies/compliance-policy-windows.example.json` as the settings
    reference; Devices → Windows → Configuration profiles → Create → Custom
    (OMA-URI) from `policies/configuration-profile-windows.example.json`.
-   (In a lab you can also POST them via Microsoft Graph to
+   (In a test environment you can also POST them via Microsoft Graph to
    `deviceManagement/deviceCompliancePolicies` / `deviceConfigurations`.)
 4. Assign both policies to the **pilot group first**, never straight to
    production.

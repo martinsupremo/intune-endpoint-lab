@@ -7,7 +7,7 @@
 | Corporate Windows, new purchase | Windows Autopilot, user-driven, Entra ID joined | Hardware hash pre-registered (by reseller or IT) → the device recognizes the tenant at first power-on; user signs in and provisioning runs. No imaging pipeline to maintain. |
 | Corporate Windows, no hash available | Manual enrollment fallback (see enrollment runbook) | Repair board swaps change the hash, some legacy machines predate registration — Company Portal enrollment still gets them managed. |
 | BYOD (any platform) | User enrolls via Company Portal | Light profile set only; the device is never subject to Wipe, so offboarding uses Retire (see decommission procedure). |
-| Apple corporate | Automated Device Enrollment via Apple Business Manager (design note only) | Same group/compliance pattern as Windows; this lab's artifacts are Windows-focused. |
+| Apple corporate | Automated Device Enrollment via Apple Business Manager (design note only) | Same group/compliance pattern as Windows; this implementation's artifacts are Windows-focused. |
 | Android corporate | Fully managed enrollment (design note only) | Corporate-owned devices get the full policy set, same as corporate Windows. |
 
 Autopilot is the default for anything the company owns. Manual enrollment is
@@ -24,7 +24,7 @@ never be "forgotten" into an unmanaged state:
 (device.deviceOwnership -eq "Company") and (device.deviceOSType -eq "Windows")
 
 # Autopilot devices (using the Autopilot group tag in devicePhysicalIds)
-(device.devicePhysicalIds -any (i: i -contains "[OrderID]:LAB-CORP"))
+(device.devicePhysicalIds -any (i: i -contains "[OrderID]:CORP"))
 
 # BYOD Windows
 (device.deviceOwnership -eq "Personal") and (device.deviceOSType -eq "Windows")
@@ -82,7 +82,7 @@ that, not the ring schedule.
   passes, an unencrypted one inside the building doesn't.
 - **Intune profiles over Group Policy** for cloud-managed devices: GPO needs
   domain line-of-sight; Intune profiles apply over any internet connection.
-  (Hybrid estates can co-manage with Configuration Manager; this lab assumes
+  (Hybrid estates can co-manage with Configuration Manager; this implementation assumes
   cloud-native.)
 - **Retire over Wipe for BYOD:** Retire removes only company data and the
   management profile. Wipe factory-resets the phone — legally and ethically
