@@ -57,7 +57,6 @@ rings, and retire/wipe decommissioning with an asset trail in Snipe-IT.
 | `docs/enrollment-runbook.md` | Enrollment SOP: checklist, Autopilot flow, manual fallback, verification, failure table |
 | `docs/app-deployment-checklist.md` | Win32 app deployment: packaging, detection, assignment, monitoring, troubleshooting |
 | `docs/decommission-procedure.md` | Retire/wipe SOP with GDPR notes + chain-of-custody log template |
-| `docs/interview-answers.md` | "How did you manage endpoints?" — talking points for interviews |
 | `.gitignore` | Keeps real policy exports, hardware-hash CSVs, and logs out of version control |
 
 ## Quick start
