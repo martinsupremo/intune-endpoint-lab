@@ -97,13 +97,13 @@ rings, and retire/wipe decommissioning with an asset trail in Snipe-IT.
 ## Validation
 
 - Both JSON templates parse cleanly: `python3 -m json.tool` reports both
-  files valid (run in this sandbox, Oct 2026). Field names are modeled on the
+  files valid (validated Oct 2026). Field names are modeled on the
   Microsoft Graph `deviceManagement/deviceCompliancePolicies`
   (`windows10CompliancePolicy`) and `deviceConfigurations`
   (`windows10CustomConfiguration`, OMA-URI) payload shapes.
 - Markdown, runbooks, and tables reviewed by hand; the diagram is
   illustrative, not a live environment.
 - **Not validated here:** importing or applying the policies — that requires
-  a real Intune tenant and licenses, which this sandbox doesn't have. Treat
+  a real Intune tenant and licenses, which aren't available here. Treat
   every value as a starting point and review it in the admin center settings
   catalog (the source of truth) before assigning beyond a pilot group.
