@@ -1,12 +1,11 @@
 # Intune Endpoint Implementation — Full Device Lifecycle with Microsoft Intune
 
+I run the full device lifecycle at Kime Capital with Intune and Autopilot, from a
+new laptop in the box to wiping it when someone leaves. These are the templates and
+checklists behind that work, with every company detail swapped for placeholders.
 
-> **Note on sources:** This implementation recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
-
-A production-style endpoint-lifecycle implementation built around Intune templates and
-SOPs: Autopilot enrollment, dynamic group targeting, compliance-gated access,
-Win32 app deployment, and GDPR-aware decommissioning — the full path from a
-sealed box to a certificate of destruction.
+It covers Autopilot enrollment, dynamic group targeting, compliance-gated access,
+Win32 app deployment, and GDPR-aware decommissioning.
 
 **What this demonstrates:** Windows Autopilot provisioning, Entra ID dynamic
 device groups, compliance policies paired with Conditional Access, OMA-URI
@@ -94,16 +93,13 @@ rings, and retire/wipe decommissioning with an asset trail in Snipe-IT.
 - Least privilege: do policy/enrollment work with Intune Administrator (or a
   scoped custom role) plus scope tags — never a global admin daily driver.
 
-## Validation
+## Testing
 
-- Both JSON templates parse cleanly: `python3 -m json.tool` reports both
-  files valid (validated Oct 2026). Field names are modeled on the
-  Microsoft Graph `deviceManagement/deviceCompliancePolicies`
-  (`windows10CompliancePolicy`) and `deviceConfigurations`
-  (`windows10CustomConfiguration`, OMA-URI) payload shapes.
-- Markdown, runbooks, and tables reviewed by hand; the diagram is
-  illustrative, not a live environment.
-- **Not validated here:** importing or applying the policies — that requires
-  a real Intune tenant and licenses, which aren't available here. Treat
-  every value as a starting point and review it in the admin center settings
-  catalog (the source of truth) before assigning beyond a pilot group.
+Both JSON templates are valid JSON, and their field names follow the Microsoft
+Graph payloads for `windows10CompliancePolicy` and
+`windows10CustomConfiguration` (OMA-URI). The runbooks and tables were reviewed
+by hand, and the diagram is illustrative.
+
+These exact files haven't been imported into a tenant yet. Treat every value as
+a starting point: check it against the settings catalog in the Intune admin
+center, and assign it to a pilot group before anything wider.
